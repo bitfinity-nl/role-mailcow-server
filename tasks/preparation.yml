@@ -1,0 +1,30 @@
+---
+# Title: Mailcow server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/main.yml
+#
+# Description:
+#   This taskfile contains the settings for installing a Mailcow mailserver.
+#
+- name: "Configure UFW for Mailcow"
+  community.general.ufw:
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+  loop:
+    - { port: '25', proto: 'tcp', service: 'Postfix SMTP' }
+    - { port: '465', proto: 'tcp', service: 'Postfix SMTPS' }
+    - { port: '587', proto: 'tcp', service: 'Postfix Submission' }
+    - { port: '143', proto: 'tcp', service: 'Dovecot IMAP' }
+    - { port: '993', proto: 'tcp', service: 'Dovecot IMAPS' }
+    - { port: '110', proto: 'tcp', service: 'Dovecot POP3' }
+    - { port: '995', proto: 'tcp', service: 'Dovecot POP3S' }
+    - { port: '4190', proto: 'tcp', service: 'Dovecot ManageSieve' }
+    - { port: '80', proto: 'tcp', service: 'HTTP' }
+    - { port: '443', proto: 'tcp', service: 'HTTPS' }
+
+- name: "Set timezone to Europe/Amsterdam"
+  community.general.timezone:
+    name: Europe/Amsterdam

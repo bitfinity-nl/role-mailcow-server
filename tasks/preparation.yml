@@ -11,6 +11,7 @@
 #
 - name: "Configure UFW for Mailcow"
   community.general.ufw:
+    rule: allow
     port: "{{ item.port }}"
     proto: "{{ item.proto }}"
   loop:

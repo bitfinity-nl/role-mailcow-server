@@ -18,6 +18,6 @@
     dest: /opt/mailcow-dockerized
     #version: 
 
-- name: "docker compose"
+- name: "docker compose pull"
 
-- name: "docker p"
+- name: "docker compose up -d"

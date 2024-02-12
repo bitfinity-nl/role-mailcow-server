@@ -9,8 +9,15 @@
 # Description:
 #   This taskfile contains the settings for installing a Mailcow mailserver.
 #
+# Source(s):
+#   - https://github.com/mailcow/mailcow-ansiblerole/
+#
 - name: "Git clone mailcow https://github.com/mailcow/mailcow-dockerized"
   ansible.builtin.git:
     repo: 'https://github.com/mailcow/mailcow-dockerized'
     dest: /opt/mailcow-dockerized
     #version: 
+
+- name: "docker compose"
+
+- name: "docker p"

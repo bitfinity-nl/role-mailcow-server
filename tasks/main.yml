@@ -12,4 +12,6 @@
 - name: "Prepare system for Mailcow"
   include_tasks: tasks/preparation.yml
 
+- name: "Install Mailcow"
+  include_tasks: tasks/mailcow.yml
 

@@ -1,0 +1,11 @@
+---
+# Title: Mailcow server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/mailcow.yml
+#
+# Description:
+#   This taskfile contains the settings for installing a Mailcow mailserver.
+#

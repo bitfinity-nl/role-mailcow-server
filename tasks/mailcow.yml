@@ -20,7 +20,7 @@
 
 - name: "Unattended"
   ansible.builtin.blockinfile:
-    path: /var/www/html/index.html
+    path:  /opt/mailcow-dockerized/generate_config.sh
     marker: "# <!-- {mark} ANSIBLE MANAGED BLOCK -->"
     insertafter: "#!/usr/bin/env bash"
     block: |

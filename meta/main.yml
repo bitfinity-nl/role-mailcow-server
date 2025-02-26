@@ -8,7 +8,7 @@ dependencies:
 galaxy_info:
   role_name: role-mailcow-server
   author: Bitfinity / L. Rutten
-  description: mailcow: dockerized is an open source groupware/email suite based on docker.
+  description: mailcow dockerized is an open source groupware/email suite based on docker.
   company: "Bitfinity"
   license: "license (BSD, MIT)"
   min_ansible_version: 2.10

@@ -16,12 +16,11 @@
   ansible.builtin.git:
     repo: 'https://github.com/mailcow/mailcow-dockerized'
     dest: /opt/mailcow-dockerized
-    #version: 
 
-  - name: "Check that the /opt/mailcow-dockerized/mailcow.conf exists on '{{ ansible_hostname }}'"
-    stat:
-      path: /opt/mailcow-dockerized/mailcow.conf
-    register: stat_result_mailcow_conf
+- name: "Check that the /opt/mailcow-dockerized/mailcow.conf exists on '{{ ansible_hostname }}'"
+  stat:
+    path: /opt/mailcow-dockerized/mailcow.conf
+  register: stat_result_mailcow_conf
 
 - name: "Unattended"
   ansible.builtin.blockinfile:
@@ -33,7 +32,7 @@
       MAILCOW_TZ=Europe/Amsterdam
       MAILCOW_BRANCH=1
       SKIP_CLAMD=n
-    when: not stat_result_mailcow_conf.stat.exists
+  when: not stat_result_mailcow_conf.stat.exists
     
 #- name: "docker compose pull"
 

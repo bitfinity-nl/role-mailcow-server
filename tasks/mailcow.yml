@@ -12,7 +12,7 @@
 # Source(s):
 #   - https://github.com/mailcow/mailcow-ansiblerole/
 #
-- name: "Check that the /opt/mailcow-dockerized/mailcow.conf exists on '{{ ansible_hostname }}'"
+- name: "Check if configuration file '/opt/mailcow-dockerized/mailcow.conf' for mailcow exists on '{{ ansible_hostname }}'"
   ansible.builtin.stat:
     path: /opt/mailcow-dockerized/mailcow.conf
   register: stat_result_mailcow_conf
@@ -23,7 +23,7 @@
     dest: /opt/mailcow-dockerized
   when: not stat_result_mailcow_conf.stat.exists
 
-- name: "Unattended"
+- name: "Configure '/opt/mailcow-dockerized/generate_config.sh' file for ini unattended initialize mailcow on '{{ ansible_hostname }}'"
   ansible.builtin.blockinfile:
     path:  /opt/mailcow-dockerized/generate_config.sh
     marker: "# <!-- {mark} ANSIBLE MANAGED BLOCK -->"
@@ -34,7 +34,14 @@
       MAILCOW_BRANCH=1
       SKIP_CLAMD=n
   when: not stat_result_mailcow_conf.stat.exists
-    
+
+- name: "Initialize mailcow by running file '/opt/mailcow-dockerized/generate_config.sh' on '{{ ansible_hostname }}'"
+  ansible.builtin.command: generate_config.sh
+  args:
+    chdir: /opt/mailcow-dockerized  
+  when: not stat_result_mailcow_conf.stat.exists
+
+  
 #- name: "docker compose pull"
 
 #- name: "docker compose up -d"

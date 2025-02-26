@@ -13,7 +13,7 @@
 #   - https://github.com/mailcow/mailcow-ansiblerole/
 #
 - name: "Check that the /opt/mailcow-dockerized/mailcow.conf exists on '{{ ansible_hostname }}'"
-  stat:
+  ansible.builtin.stat:
     path: /opt/mailcow-dockerized/mailcow.conf
   register: stat_result_mailcow_conf
   

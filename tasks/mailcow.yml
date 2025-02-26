@@ -18,6 +18,17 @@
     dest: /opt/mailcow-dockerized
     #version: 
 
+- name: "Unattended"
+  ansible.builtin.blockinfile:
+    path: /var/www/html/index.html
+    marker: "# <!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    insertafter: "#!/usr/bin/env bash"
+    block: |
+      MAILCOW_HOSTNAME=test-name.bitfinity.net
+      MAILCOW_TZ=Europe/Amsterdam
+      MAILCOW_BRANCH=1
+      SKIP_CLAMD=n
+      
 #- name: "docker compose pull"
 
 #- name: "docker compose up -d"

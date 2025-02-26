@@ -12,15 +12,16 @@
 # Source(s):
 #   - https://github.com/mailcow/mailcow-ansiblerole/
 #
-- name: "Git clone mailcow https://github.com/mailcow/mailcow-dockerized"
-  ansible.builtin.git:
-    repo: 'https://github.com/mailcow/mailcow-dockerized'
-    dest: /opt/mailcow-dockerized
-
 - name: "Check that the /opt/mailcow-dockerized/mailcow.conf exists on '{{ ansible_hostname }}'"
   stat:
     path: /opt/mailcow-dockerized/mailcow.conf
   register: stat_result_mailcow_conf
+  
+- name: "Git clone mailcow https://github.com/mailcow/mailcow-dockerized"
+  ansible.builtin.git:
+    repo: 'https://github.com/mailcow/mailcow-dockerized'
+    dest: /opt/mailcow-dockerized
+  when: not stat_result_mailcow_conf.stat.exists
 
 - name: "Unattended"
   ansible.builtin.blockinfile:

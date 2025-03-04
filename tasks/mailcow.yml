@@ -29,10 +29,10 @@
     marker: "# <!-- {mark} ANSIBLE MANAGED BLOCK -->"
     insertafter: "#!/usr/bin/env bash"
     block: |
-      MAILCOW_HOSTNAME=test-name.bitfinity.net
-      MAILCOW_TZ=Europe/Amsterdam
+      MAILCOW_HOSTNAME="{{ MC_MAILCOW_HOSTNAME }}"
+      MAILCOW_TZ="{{ MC_TZ }}"
       MAILCOW_BRANCH=1
-      SKIP_CLAMD=n
+      SKIP_CLAMD="{{ MC_SKIP_CLAMD }}"
   when: not stat_result_mailcow_conf.stat.exists
 
 - name: "Initialize mailcow by running file '/opt/mailcow-dockerized/generate_config.sh' on '{{ ansible_hostname }}'"

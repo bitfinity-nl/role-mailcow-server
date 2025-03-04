@@ -1,0 +1,90 @@
+---
+# Title: Mailcow server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: defaults/main.yml
+#
+# Description:
+#   This defaults file contains the default settings 
+#   for installing a Mailcow mailserver.
+#
+
+# --Default variable(s) for file 'mailcow.conf' --
+#
+# Comment:
+#   See the mailcow.conf for more information about all settings 
+#   or consult the documentation https://docs.mailcow.email/.
+#
+MC_MAILCOW_HOSTNAME                 : ''
+MC_MAILCOW_PASS_SCHEME              : 'BLF-CRYPT'
+MC_DBNAME                           : 'mailcow'
+MC_DBUSER                           : 'mailcow'
+MC_DBPASS                           : ''
+MC_DBROOT                           : ''
+MC_REDISPASS                        : ''
+MC_HTTP_PORT                        : '80'
+MC_HTTP_BIND                        : ''
+MC_HTTPS_PORT                       : '443'
+MC_HTTPS_BIND                       : ''
+MC_HTTP_REDIRECT                    : 'n'
+MC_SMTP_PORT                        : '25'
+MC_SMTPS_PORT                       : '465'
+MC_SUBMISSION_PORT                  : '587'
+MC_IMAP_PORT                        : '143'
+MC_IMAPS_PORT                       : '993'
+MC_POP_PORT                         : '110'
+MC_POPS_PORT                        : '995'
+MC_SIEVE_PORT                       : '4190'
+MC_DOVEADM_PORT                     : '127.0.0.1:19991'
+MC_SQL_PORT                         : '127.0.0.1:13306'
+MC_REDIS_PORT                       : '127.0.0.1:7654'
+MC_TZ                               : 'Europe/Amsterdam'
+MC_COMPOSE_PROJECT_NAME             : 'mailcowdockerized'
+MC_DOCKER_COMPOSE_VERSION           : 'native'
+MC_ACL_ANYONE                       : 'disallow'
+MC_MAILDIR_GC_TIME                  : '7200'
+MC_ADDITIONAL_SAN                   : ''
+MC_AUTODISCOVER_SAN                 : 'y'
+MC_ADDITIONAL_SERVER_NAMES          : ''
+MC_SKIP_LETS_ENCRYPT                : 'n'
+MC_ENABLE_SSL_SNI                   : 'n'
+MC_SKIP_IP_CHECK                    : 'n'
+MC_SKIP_HTTP_VERIFICATION           : 'n'
+MC_SKIP_UNBOUND_HEALTHCHECK         : 'n'
+MC_SKIP_CLAMD                       : 'n'
+MC_SKIP_SOGO                        : 'n'
+MC_SKIP_FTS                         : 'n'
+MC_FTS_HEAP                         : '128'
+MC_FTS_PROCS                        : '1'
+MC_ALLOW_ADMIN_EMAIL_LOGIN          : 'n'
+MC_USE_WATCHDOG                     : 'y'
+MC_WATCHDOG_NOTIFY_BAN              : 'n'
+MC_WATCHDOG_NOTIFY_START            : 'y'
+MC_WATCHDOG_EXTERNAL_CHECKS         : 'n'
+MC_WATCHDOG_VERBOSE                 : 'n'
+MC_LOG_LINES                        : '9999'
+MC_IPV4_NETWORK                     : '172.22.1'
+MC_IPV6_NETWORK                     : 'fd4d:6169:6c63:6f77::/64'
+MC_MAILDIR_SUB                      : 'Maildir'
+MC_SOGO_EXPIRE_SESSION              : '480'
+MC_DOVECOT_MASTER_USER              : ''
+MC_DOVECOT_MASTER_PASS              : ''
+MC_ACME_CONTACT                     : ''
+MC_WEBAUTHN_ONLY_TRUSTED_VENDORS    : 'n'
+MC_SPAMHAUS_DQS_KEY                 : ''
+MC_DISABLE_NETFILTER_ISOLATION_RULE : 'n'
+
+
+
+
+
+
+
+
+
+
+
+
+

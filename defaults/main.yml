@@ -17,7 +17,7 @@
 #   See the mailcow.conf for more information about all settings 
 #   or consult the documentation https://docs.mailcow.email/.
 #
-MC_MAILCOW_HOSTNAME                 : ''
+MC_MAILCOW_HOSTNAME                 : 'mailcow.example.com'
 MC_MAILCOW_PASS_SCHEME              : 'BLF-CRYPT'
 MC_DBNAME                           : 'mailcow'
 MC_DBUSER                           : 'mailcow'

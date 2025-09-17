@@ -9,6 +9,13 @@
 # Description:
 #   This taskfile contains the settings for installing a Mailcow mailserver.
 #
+- name: "Install dependencies via APT-packages"
+  ansible.builtin.apt:
+    pkg:
+    - jq
+    update_cache: yes
+    state: present
+    
 - name: "Configure UFW for Mailcow"
   community.general.ufw:
     rule: allow

@@ -38,7 +38,8 @@
 - name: "Initialize mailcow by running file '/opt/mailcow-dockerized/generate_config.sh' on '{{ ansible_hostname }}'"
   ansible.builtin.command: ./generate_config.sh
   args:
-    chdir: /opt/mailcow-dockerized  
+    chdir: /opt/mailcow-dockerized
+  notify: start_docker_service_mailcow
   when: not stat_result_mailcow_conf.stat.exists
 
   

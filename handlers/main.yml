@@ -1,0 +1,16 @@
+---
+# Title: Mailcow server
+#
+# Author: Bitfinity
+# Owner: Bitfinity
+#
+# File: handlers/main.yml
+#
+# Description:
+#   This taskfile contains the settings for installing a Mailcow mailserver.
+#
+- name: "start_docker_service_mailcow"
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: /opt/authentik/
+  register: output

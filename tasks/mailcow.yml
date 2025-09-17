@@ -41,3 +41,20 @@
     chdir: /opt/mailcow-dockerized
   notify: start_docker_service_mailcow
   when: not stat_result_mailcow_conf.stat.exists  
+
+
+#--- maintenance
+
+#- name: Ensure the default Apache port is 8080
+#  ansible.builtin.lineinfile:
+#    path: /opt/mailcow-dockerized/mailcow.conf
+#    regexp: '{{ mailcow_setting.find }}'
+#    line: '{{ mailcow_setting.replace }}'
+#    backup: true
+#  loop:
+#    - { find: '^SKIP_LETS_ENCRYPT=.*', replace: '^SKIP_LETS_ENCRYPT={{ MC_SKIP_LETS_ENCRYPT }}' }
+    
+#  loop_control:
+#    loop_var: mailcow_setting
+    
+    
